@@ -13,13 +13,11 @@ pipeline {
                 git branch: 'main', credentialsId: 'github_repo', url: 'https://github.com/tamarshnirer/nodejs-deployment-k8s.git'
             }
         }
-    }
         stage('build image') {
             steps {
                 sh "docker build -t tamarshnirer/hello_nodejs ."
                 }
             }
-        }
     
         stage('login') {
             steps {
@@ -43,3 +41,4 @@ pipeline {
         }
     }
 }
+        
