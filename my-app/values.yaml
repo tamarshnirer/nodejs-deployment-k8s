@@ -1,0 +1,24 @@
+image:
+  repository: tamarshnirer/hello_nodejs
+  tag: latest
+  pullpolicy: IfNotPresent
+replicaCount: 1
+
+app:
+  name: my-app
+
+port: 3000
+
+nameOverride: "my-nodejs-app"
+fullnameOverride: "my-nodejs-app"
+
+serviceAccount:
+  create: true
+  name: my-app-service-account
+
+service:
+  type: NodePort
+ingress:
+  enabled: true
+autoscaling:
+  enabled: false

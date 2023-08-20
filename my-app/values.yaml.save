@@ -1,0 +1,6 @@
+image:
+  repository: tamarshnirer/hello_nodejs
+  tag: latest
+
+
+replicaCount: 1
