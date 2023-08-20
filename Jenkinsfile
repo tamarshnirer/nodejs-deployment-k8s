@@ -6,11 +6,16 @@ pipeline {
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub')
     }
-    
     stages {
+        stage('Fetch files') {
+            steps {
+                // Checkout the code 
+                git branch: 'main', credentialsId: 'github_repo', url: 'https://github.com/tamarshnirer/nodejs-deployment-k8s.git'
+            }
+        }
+    }
         stage('build image') {
             steps {
-                dir('/home/ubuntu/nodejs_app') {
                 sh "docker build -t tamarshnirer/hello_nodejs ."
                 }
             }
